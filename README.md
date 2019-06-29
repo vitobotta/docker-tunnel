@@ -1,6 +1,6 @@
 # docker-tunnel
 
-This is a Docker-based, self hosted alternative to [Ngrok](https://ngrok.com/). It exposes a web app running locally on a development machine to the Internet, using a secure SSH reverse tunnel to a server which is already exposed to the Internet. It was inspired by [this blog post](https://jerrington.me/posts/2019-01-29-self-hosted-ngrok.html). [Here](https://vitobotta.com/2019/06/29/self-hosted-alternative-to-ngrok/)'s my blog post instead explaining how the code works.
+This is a Docker-based, self hosted alternative to [Ngrok](https://ngrok.com/). It exposes a web app running locally on a development machine to the Internet, using a secure SSH reverse tunnel to a server which is already exposed to the Internet. It was inspired by [this blog post](https://jerrington.me/posts/2019-01-29-self-hosted-ngrok.html). Also see [my blog post](https://vitobotta.com/2019/06/29/self-hosted-alternative-to-ngrok/) explaining how the code works.
 
 ### Example use cases
 
