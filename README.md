@@ -8,7 +8,7 @@ This is a Docker-based, self hosted alternative to [Ngrok](https://ngrok.com/). 
 - allowing [Let's Encrypt](https://letsencrypt.org/)'s HTTP challenge for domain verification to work with apps otherwise not exposed to the Internet directly. For example, I needed this to test a SaaS app running on a local Kubernetes cluster, that lets users add custom domains out of my control for which I cannot use the DNS verification method.
 
 
-## Usage
+## Usage
 
 It's easier with an example. Let's say you want your app to accept HTTP requests from the Internet on the usual ports 80 and 443, and the app is also listening to the ports 80 and 443 on your dev machine, so to be able to test the app with both HTTP and HTTPS requests like in production. In order to set up the tunnel and expose your app, two containers are required. Firstly, on a server exposed to the Internet and with Docker installed (the proxy server) run:
 
