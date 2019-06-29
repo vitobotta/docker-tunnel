@@ -7,7 +7,6 @@ ADD start.sh /
 
 RUN chmod +x /start.sh
 
-ENV TUNNEL_PORT "3000"
 ENV PORTS "80:3000,443:3001"
 ENV PROXY_HOST "1.2.3.4"
 ENV PROXY_SSH_PORT "22"
