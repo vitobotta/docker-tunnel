@@ -29,10 +29,5 @@ http {
 }
 
 stream {
-    server {
-      ${LISTEN}
-
-      proxy_pass 127.0.0.1:${TUNNEL_PORT};
-      proxy_responses 0;
-    }
+    ${TUNNELS}
 }
