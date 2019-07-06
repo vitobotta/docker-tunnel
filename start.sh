@@ -33,16 +33,17 @@ EOS
 
   "app" )
     DOCKER_HOST="$(getent hosts host.docker.internal | cut -d' ' -f1)"
+    APP_IP="${APP_IP:-DOCKER_HOST}"
 
-    if [ -z "${DOCKER_HOST}" ]; then
-      DOCKER_HOST=$(ip -4 route show default | cut -d' ' -f3)
+    if [ -z "${APP_IP}" ]; then
+      APP_IP=$(ip -4 route show default | cut -d' ' -f3)
     fi
 
     TUNNELS=" "
 
     for MAPPINGS in `echo ${PORTS} | awk -F, '{for (i=1;i<=NF;i++)print $i}'`; do
       IFS=':' read -r -a MAPPING <<< "$MAPPINGS"; unset IFS
-      TUNNELS="${TUNNELS} -R ${MAPPING[1]}:${DOCKER_HOST}:${MAPPING[0]} "
+      TUNNELS="${TUNNELS} -R ${MAPPING[1]}:${APP_IP}:${MAPPING[0]} "
     done
 
     autossh -M 0 -o "PubkeyAuthentication=yes" -o "PasswordAuthentication=no" -o "StrictHostKeyChecking=no" -o "ServerAliveInterval=5" -o "ServerAliveCountMax 3" -i /ssh.key ${TUNNELS} ${PROXY_SSH_USER}@${PROXY_HOST} -p ${PROXY_SSH_PORT}
