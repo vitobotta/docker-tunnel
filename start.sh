@@ -33,7 +33,7 @@ EOS
 
   "app" )
     DOCKER_HOST="$(getent hosts host.docker.internal | cut -d' ' -f1)"
-    APP_IP="${APP_IP:-DOCKER_HOST}"
+    APP_IP="${APP_IP:-$DOCKER_HOST}"
 
     if [ -z "${APP_IP}" ]; then
       APP_IP=$(ip -4 route show default | cut -d' ' -f3)
